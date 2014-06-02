@@ -31,8 +31,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
 		// TODO 自動生成されたメソッド・スタブ
 		switch(v.getId()) {
 			case R.id.button:
-				EditText etv = (EditText)findViewById(R.id.textView);
-				String inputMsg = etv.getText().toString();
+				EditText etv1 = (EditText)findViewById(R.id.text);
+				String inputMsg = etv1.getText().toString();
 
 				Random rnd = new Random();
 				int ran = rnd.nextInt(4);
@@ -41,26 +41,25 @@ public class MainActivity extends Activity implements View.OnClickListener{
 				switch(ran) {
 					case 0: //大吉へ遷移
 						intent = new Intent(MainActivity.this, daikiti_activity.class);
-						startActivity(intent);
 						break;
 
 					case 1://中吉へ遷移
 						intent = new Intent(MainActivity.this, tyukiti_activity.class);
-						startActivity(intent);
 						break;
 
 					case 2://凶へ遷移
 						intent = new Intent(MainActivity.this, kyou_activity.class);
-						startActivity(intent);
 						break;
 
 					case 3://大凶へ遷移
 						intent = new Intent(MainActivity.this, daikyou_activity.class);
-						startActivity(intent);
 						break;
 
 
 				}
+				intent.putExtra("name", inputMsg);
+				startActivity(intent);
+				break;
 		}
 
 	}
